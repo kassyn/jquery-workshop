@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exemplo Seletores</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			font-size: 14px;
+			line-height: 1.2;
+			overflow-x: hidden;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			background: #f7f7f7;
+		}
+
+		.content p,
+		.content table,
+		.content ul,
+		.content ol,
+		.content blockquote,
+		.content form {
+			margin-bottom: 15px;
+		}
+
+		.content p,
+		.content ul,
+		.content ol {
+			line-height: 1.8;
+			font-size: 18px;
+		}
+
+		.content ul,
+		.content ol {
+			list-style-position: inside;
+		}
+
+		strong {
+			font-weight: bold;
+		}
+
+		.content img {
+			width: 100%;
+			height: auto;
+		}
+
+		.content {
+			padding: 10px 30px;
+			background: #fff;
+			width: 80%;
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 50px;
+		}
+
+		.outline {
+			outline: 1px solid red;
+		}
+
+		.wrap-fixed {
+			position: fixed;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			height: 60px;
+			background: #000;
+		}
+
+		.wrap-fixed input {
+			width: 90%;
+			height: 30px;
+			padding: 0 20px;
+			position: relative;
+			left: 50%;
+			transform: translate3d(-50%, -50%, 0);
+			top: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+		<ul>
+			<li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+			<li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+			<li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+			<li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+		</ul>
+
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Clients</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+		</nav>
+
+		<form action="#" method="post">
+			<div>
+				<label for="name">Text Input:</label>
+				<input type="text" name="name" id="name" value="" tabindex="1" />
+			</div>
+
+			<div>
+				<h4>Radio Button Choice</h4>
+
+				<label for="radio-choice-1">Choice 1</label>
+				<input type="radio" name="radio-choice-1" id="radio-choice-1" tabindex="2" value="choice-1" />
+
+				<label for="radio-choice-2">Choice 2</label>
+				<input type="radio" name="radio-choice-2" id="radio-choice-2" tabindex="3" value="choice-2" />
+			</div>
+
+			<div>
+				<label for="select-choice">Select Dropdown Choice:</label>
+				<select name="select-choice" id="select-choice">
+					<option value="Choice 1">Choice 1</option>
+					<option value="Choice 2">Choice 2</option>
+					<option value="Choice 3">Choice 3</option>
+				</select>
+			</div>
+
+			<div>
+				<label for="textarea">Textarea:</label>
+				<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+			</div>
+
+			<div>
+				<label for="checkbox">Checkbox:</label>
+				<input type="checkbox" name="checkbox" id="checkbox" />
+			</div>
+
+			<div>
+				<input type="submit" value="Submit" />
+			</div>
+		</form>
+	</div>
+
+	<div class="wrap-fixed">
+		<input id="search" type="text" placeholder="Informe aqui seu seletor">
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script>
+		$(function() {
+			var content = $( '.content' );
+
+			function removeAllClassOutline() {
+				$( '.outline' ).removeClass( 'outline' );
+			}
+
+			//buscando seletores
+			$( '#search' ).on( 'keypress', function(event) {
+				if ( event.which === 13 ) {
+					removeAllClassOutline();
+					content.find( event.target.value ).addClass( 'outline' );
+				}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Capture vs Bubble</title>
+</head>
+<body>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script>
+		// registrando 'click' do elemento #um na fase de bubbling (padrão)
+		document.getElementById( 'um' ).addEventListener( 'click', function( event ){
+    		console.log( '#tres clicado' )
+		});
+
+		// registrando 'click' do elemento #dois na fase de capturing
+		document.getElementById( 'dois' ).addEventListener( 'click', function( event ){
+			console.log( '#dois clicado' )
+		}, true );
+
+		// ou, jQuery like (só registra no bubbling )
+		$( '#um' ).click(function( event ){
+			console.log( '#tres clicado' )
+		});
+
+		$( '#dois' ).on( 'click', function( event ){
+			console.log( '#um clicado' )
+		});
+	</script>
+</body>
+</html>
