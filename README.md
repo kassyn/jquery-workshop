@@ -11,7 +11,7 @@ O minicurso terá 3 dias onde abordaremos alguns dos assuntos principais para de
 	* Capture vs Bubble (exemplo-4.html)
 	* preventDefault e stopPropagation (exemplo-5.html)
 	* Exemplo Modal (exemplo-6.html)
+* Chaining
 * Plugins
 * Atribuições css, attr, data, props
-* *Ajax*
-* *Utils*
+* *Instagram Feeds App (Ajax, MONKEY, Handlebars, Utils)*
