@@ -50,7 +50,7 @@
 			width: 80%;
 			display: block;
 			margin: 0 auto;
-			margin-bottom: 50px;
+			margin-top: 80px;
 		}
 
 		.outline {
@@ -60,7 +60,7 @@
 		.wrap-fixed {
 			position: fixed;
 			width: 100%;
-			bottom: 0;
+			top: 0;
 			left: 0;
 			height: 60px;
 			background: #000;
@@ -75,22 +75,29 @@
 			transform: translate3d(-50%, -50%, 0);
 			top: 50%;
 		}
+
+		p {
+			background: #000;
+			color: #fff;
+		}
 	</style>
 </head>
 <body>
 	<div class="content">
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+		<p id="test-3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 
-		<ul>
+		<ul class="test-1">
 			<li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
 			<li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
 			<li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
 			<li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
 		</ul>
 
-		<nav>
+
+
+		<nav class="test-2">
 			<ul>
 				<li><a href="#">Home</a></li>
 				<li><a href="#">About</a></li>
@@ -104,6 +111,15 @@
 				<label for="name">Text Input:</label>
 				<input type="text" name="name" id="name" value="" tabindex="1" />
 			</div>
+
+			<ul>
+				<li>
+					<a href="">Google</a>
+					<ul>
+						<li>assss</li>
+					</ul>
+				</li>
+			</ul>
 
 			<div>
 				<h4>Radio Button Choice</h4>
@@ -160,6 +176,11 @@
 					content.find( event.target.value ).addClass( 'outline' );
 				}
 			});
+
+			//js selector custom
+			$.expr[':'].kayo = function(el) {
+				return el.is( ':text' ) && el.value;
+			};
 		});
 	</script>
 </body>

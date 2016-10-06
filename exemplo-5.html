@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.modal {
+			display: none;
+			position: fixed;
+			top: 20%;
+			bottom: 20%;
+			right: 20%;
+			left: 20%;
+			background: #fff;
+			padding: 20px;
+			border: 1px solid #ccc;
+			overflow: hidden;
+			z-index: 10;
+		}
+
+		.overlayer {
+			display: none;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			z-index: 5;
+			background: rgba(0, 0, 0, 0.57);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="overlayer"></div>
+		<div class="modal">
+			<a href="#kayo">LINK</a>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			</p>
+			<p>
+				Qui soluta id cupiditate, consectetur quod voluptatum saepe, eveniet, asperiores itaque molestias magni! Aperiam voluptatibus, saepe dolorem sequi fugit esse blanditiis laboriosam.
+			</p>
+		</div>
+
+		<button type="button">Modal</button>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script>
+		var modal = $( '.modal' );
+		var over  = $( '.overlayer' );
+
+		function showModal() {
+			modal.fadeIn( 300 );
+			over.show();
+		}
+
+		function hideModal() {
+			modal.hide();
+			over.hide();
+		}
+
+		$( 'body' ).on( 'click.modal', function() {
+			hideModal();
+		});
+
+		$( 'button' ).on( 'click', function(event) {
+			event.stopPropagation();
+			showModal();
+		});
+
+		modal.on( 'click', function(event) {
+			event.stopPropagation();
+		});
+	</script>
+</body>
+</html>

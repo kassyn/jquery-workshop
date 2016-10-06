@@ -5,25 +5,46 @@
 	<title>Capture vs Bubble</title>
 </head>
 <body>
+	<button type="button" id="um">Um</button>
+	<button type="button" id="dois">Dois</button>
+	<a href="http://univale.br">Univale</a>
+
+	<form class="cad" action="cad.php" method="POST">
+		<input type="text" name="nome" placeholder="Nome">
+		<input type="email" name="email" placeholder="Email">
+		<input type="submit" value="Enviar" />
+	</form>
+
 	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 	<script>
-		// registrando 'click' do elemento #um na fase de bubbling (padrão)
-		document.getElementById( 'um' ).addEventListener( 'click', function( event ){
-    		console.log( '#tres clicado' )
-		});
-
-		// registrando 'click' do elemento #dois na fase de capturing
-		document.getElementById( 'dois' ).addEventListener( 'click', function( event ){
-			console.log( '#dois clicado' )
-		}, true );
-
 		// ou, jQuery like (só registra no bubbling )
-		$( '#um' ).click(function( event ){
-			console.log( '#tres clicado' )
+		//Jeito #1
+		$( '#um' ).click(function(event) {
+			console.log( '#um clicado' );
 		});
 
-		$( '#dois' ).on( 'click', function( event ){
-			console.log( '#um clicado' )
+		//Jeito #2
+		$( '#dois' ).on( 'click', function(event) {
+			console.log( '#doi clicado' );
+		});
+
+		$( 'a' ).on( 'click', function(event) {
+			event.preventDefault();
+			console.log( 'click univale' );
+		});
+
+		$( '.cad' ).on( 'submit', function(event) {
+			event.preventDefault();
+			var name = $( '[name="nome"]' ).val();
+			var email = $( '[name="email"]' ).val();
+
+			if ( !$.trim( name ) || !$.trim( email ) ) {
+				alert( 'preencha todos os campos!' );
+				return;
+			}
+
+			//Ajax AQUI...
+			console.log( 'AJAX FEITO ==>' );
 		});
 	</script>
 </body>

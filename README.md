@@ -7,10 +7,10 @@ O minicurso terá 3 dias onde abordaremos alguns dos assuntos principais para de
 	* Nativos
 	* Sizzle
 	* Criando um seletor customizável
-* Eventos
-	* Capture vs Bubble (exemplo-4.html)
-	* preventDefault e stopPropagation (exemplo-5.html)
-	* Exemplo Modal (exemplo-6.html)
+* Eventos (exemplo-4.html) e (exemplo-5.html)
+	* Capture vs Bubble
+	* preventDefault  e stopPropagation
+	* Exemplo Modal
 * Chaining
 * Plugins
 * Atribuições css, attr, data, props
